@@ -307,6 +307,7 @@ h6 {
   cursor: pointer;
   border-radius: 50px;
   padding: 5px;
+  color : white;
 }
 
 .mobile-nav-toggle i {
@@ -329,21 +330,54 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#hero {
+/* #hero {
   width: 100%;
   height: 100vh;
   background: url("../img/hero.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
+} */
+
+
+#hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: url("../img/background.jpg") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* Keeps the background fixed */
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5); /* optional dark tint */
+  z-index: 1;
+}
+
+
+#hero > .container {
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 992px) {
   #hero {
-    padding-left: 160px;
+    padding-left: 90px;
   }
 }
 
-#hero:before {
+/* #hero:before {
   content: "";
   background: rgba(255, 255, 255, 0.8);
   position: absolute;
@@ -351,7 +385,7 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
-}
+} */
 
 #hero h1 {
   margin: 0;
@@ -1327,4 +1361,61 @@ section {
   top: 0;
   background: #fff;
   border: 2px solid #1f5297;
+}
+
+
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 36px;
+  background: #eef7ff;
+  color: #0563bb;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact-card:hover .contact-icon {
+  background: #0563bb;
+  color: #fff;
+}
+
+.contact-card h4 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #45505b;
+}
+
+.contact-card p {
+  font-size: 14px;
+  margin: 0;
+  color: #728394;
+  word-break: break-word;
+}
+
+
+#skills {
+  padding-bottom: 100px;
+}
+
+#contact {
+  padding-top: 100px;
+  min-height: 80vh;
 }
